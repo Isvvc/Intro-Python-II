@@ -51,3 +51,15 @@ player = Player(name, room['outside'])
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+while True:
+    cmd = input("-> ")
+    
+    if cmd == "q":
+        print("You give up on your quest, allowing the Dark Wizard to take over the world.")
+        break
+    elif cmd in ["n", "s", "e", "w"]:
+        if player.move(cmd):
+            print(player.current_room.name)
+        else:
+            print("You can't go that way.")

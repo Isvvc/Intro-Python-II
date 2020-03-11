@@ -9,3 +9,11 @@ class Room:
         self.s_to = None
         self.e_to = None
         self.w_to = None
+    def room_in_direction(self, direction):
+        directions = {
+            "n": self.n_to,
+            "s": self.s_to,
+            "e": self.e_to,
+            "w": self.w_to
+        }
+        return directions[direction]
