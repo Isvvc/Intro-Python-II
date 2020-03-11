@@ -41,6 +41,9 @@ room['treasure'].s_to = room['narrow']
 name = input("Enter your character's name: ")
 player = Player(name, room['outside'])
 
+print("You stand outside a cave enterance.")
+print(player.current_room.description)
+
 # Write a loop that:
 #
 # * Prints the current room name
@@ -61,5 +64,6 @@ while True:
     elif cmd in ["n", "s", "e", "w"]:
         if player.move(cmd):
             print(player.current_room.name)
+            print(player.current_room.description)
         else:
             print("You can't go that way.")
