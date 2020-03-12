@@ -22,3 +22,8 @@ class Player:
         item = Item.move_item(item_name, self.inventory, self.current_room.items)
         if item is not None:
             item.on_drop()
+    def print_inv(self):
+        print("\nInventory")
+        for item in self.inventory:
+            print(f"{item.name}: {item.description}")
+        print()

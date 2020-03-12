@@ -83,7 +83,7 @@ while True:
             else:
                 print("You can't go that way.")
         elif cmd in ["i", "inventory"]:
-            print([x.name for x in player.inventory])
+            player.print_inv()
         elif cmd == "help":
             print("\nMove: n, s, e, w")
             print("Take items: take [item_name], get [item_name]")
