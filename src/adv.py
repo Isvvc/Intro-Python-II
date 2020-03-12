@@ -46,8 +46,9 @@ room['treasure'].s_to = room['narrow']
 name = input("Enter your character's name: ")
 player = Player(name, room['outside'])
 
-print("You stand outside a cave enterance.")
+print("\nYou stand outside a cave enterance.")
 print(player.current_room.description)
+print()
 
 # Write a loop that:
 #
@@ -72,21 +73,26 @@ while True:
         elif cmd in ["n", "s", "e", "w"]:
             if player.move(cmd):
                 room = player.current_room
+                print()
                 print(room.name)
                 print(room.description)
                 if room.list_items() is not None:
+                    print()
                     print(room.list_items())
+                print()
             else:
                 print("You can't go that way.")
-        elif cmd == "inv":
+        elif cmd in ["i", "inventory"]:
             print([x.name for x in player.inventory])
         elif cmd == "help":
-            print("Move: n, s, e, w")
+            print("\nMove: n, s, e, w")
             print("Take items: take [item_name], get [item_name]")
-            print("View inventory: inv")
-            print("Quit: q")
+            print("View inventory: i, inventory")
+            print("Quit: q\n")
     elif len(inputs) == 2:
         if inputs[0] in ["get", "take"]:
             player.take(inputs[1])
+            print()
         if inputs[0] == "drop":
             player.drop(inputs[1])
+            print()
