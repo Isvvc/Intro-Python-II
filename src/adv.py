@@ -80,6 +80,11 @@ while True:
                 print("You can't go that way.")
         elif cmd == "inv":
             print([x.name for x in player.inventory])
+        elif cmd == "help":
+            print("Move: n, s, e, w")
+            print("Take items: take [item_name], get [item_name]")
+            print("View inventory: inv")
+            print("Quit: q")
     elif len(inputs) == 2:
         if inputs[0] in ["get", "take"]:
             player.take(inputs[1])
