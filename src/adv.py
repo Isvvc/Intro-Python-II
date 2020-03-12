@@ -88,3 +88,5 @@ while True:
     elif len(inputs) == 2:
         if inputs[0] in ["get", "take"]:
             player.take(inputs[1])
+        if inputs[0] == "drop":
+            player.drop(inputs[1])

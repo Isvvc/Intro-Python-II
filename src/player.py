@@ -15,4 +15,10 @@ class Player:
             return True
         return False
     def take(self, item_name):
-        Item.move_item(item_name, self.current_room.items, self.inventory)
+        item = Item.move_item(item_name, self.current_room.items, self.inventory)
+        if item is not None:
+            item.on_take()
+    def drop(self, item_name):
+        item = Item.move_item(item_name, self.inventory, self.current_room.items)
+        if item is not None:
+            item.on_drop()
