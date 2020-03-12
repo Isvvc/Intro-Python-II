@@ -63,15 +63,23 @@ print(player.current_room.description)
 while True:
     cmd = input("-> ")
     
-    if cmd == "q":
-        print("You give up on your quest, allowing the Dark Wizard to take over the world.")
-        break
-    elif cmd in ["n", "s", "e", "w"]:
-        if player.move(cmd):
-            room = player.current_room
-            print(room.name)
-            print(room.description)
-            if room.list_items() is not None:
-                print(room.list_items())
-        else:
-            print("You can't go that way.")
+    inputs = cmd.split()
+
+    if len(inputs) == 1:
+        if cmd == "q":
+            print("You give up on your quest, allowing the Dark Wizard to take over the world.")
+            break
+        elif cmd in ["n", "s", "e", "w"]:
+            if player.move(cmd):
+                room = player.current_room
+                print(room.name)
+                print(room.description)
+                if room.list_items() is not None:
+                    print(room.list_items())
+            else:
+                print("You can't go that way.")
+        elif cmd == "inv":
+            print([x.name for x in player.inventory])
+    elif len(inputs) == 2:
+        if inputs[0] in ["get", "take"]:
+            player.take(inputs[1])
